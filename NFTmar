@@ -38,7 +38,8 @@ contract NFTMarketplace {
         emit NFTInserito(msg.sender, _prezzo, _metadataURI);
     }
 
-    function acquistaNFT(uint256 _index) external payable {
+    function acquistaNFT(uint256 _ind      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);ex) external payable {
         require(_index < nftDisponibili.length, "NFT non trovato.");
         NFT storage nft = nftDisponibili[_index];
         require(msg.value >= nft.prezzo, "Importo insufficiente.");
@@ -47,5 +48,6 @@ contract NFTMarketplace {
         nft.prezzo = 0;
         payable(venditore).transfer(msg.value);
         emit NFTVenduto(msg.sender, venditore, msg.value);
-    }
+    }      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);
 }
