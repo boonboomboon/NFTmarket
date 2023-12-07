@@ -1,1 +1,52 @@
-!
+class NFT:
+    def __init__(self, id, proprietario, titolo, descrizione, prezzo):
+        self.id = id
+        self.proprietario = proprietario
+        self.titolo = titolo
+        self.descrizione = descrizione
+        self.prezzo = prezzo
+
+class NFTMarketplace:
+    def __init__(self):
+        self.nft_disponibili = []
+
+    def aggiungi_nft(self, nft):
+        self.nft_disponibili.append(nft)
+
+    def mostra_nft_disponibili(self):
+        if self.nft_disponibili:
+            print("NFT Disponibili:")
+            for nft in self.nft_disponibili:
+                print(f"ID: {nft.id}, Titolo: {nft.titolo}, Proprietario: {nft.proprietario}, Prezzo: {nft.prezzo} ETH")
+        else:
+            print("Nessun NFT disponibile.")
+
+    def acquista_nft(self, id_nft, acquirente):
+        for nft in self.nft_disponibili:
+            if nft.id == id_nft:
+                if nft.prezzo > 0:
+                    print(f"{acquirente} ha acquistato l'NFT '{nft.titolo}' per {nft.prezzo} ETH.")
+                    self.nft_disponibili.remove(nft)
+                else:
+                    print(f"{acquirente} ha ricevuto in regalo l'NFT '{nft.titolo}'.")
+                return
+        print(f"Nessun NFT trovato con ID {id_nft}.")
+
+if __name__ == "__main__":
+    marketplace = NFTMarketplace()
+
+    nft1 = NFT(1, "Alice", "Opera d'arte astratta", "Descrizione dell'opera d'arte", 5.0)
+    nft2 = NFT(2, "Bob", "Fotografia paesaggistica", "Descrizione della foto", 0.0)  # NFT regalato
+    nft3 = NFT(3, "Charlie", "NFT senza prezzo", "Descrizione dell'NFT senza prezzo", 0.0)
+
+    marketplace.aggiungi_nft(nft1)
+    marketplace.aggiungi_nft(nft2)
+    marketplace.aggiungi_nft(nft3)
+
+    marketplace.mostra_nft_disponibili()
+
+    marketplace.acquista_nft(1, "Eve")
+    marketplace.acquista_nft(2, "Mallory")  # NFT regalato
+    marketplace.acquista_nft(4, "Alice")  # NFT inesistente
+
+    marketplace.mostra_nft_disponibili()
