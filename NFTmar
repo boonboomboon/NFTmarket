@@ -49,5 +49,27 @@ contract NFTMarketplace {
         payable(venditore).transfer(msg.value);
         emit NFTVenduto(msg.sender, venditore, msg.value);
     }      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);unction acquistaNFT(uint256 _ind      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);ex) external payable {
+        require(_index < nftDisponibili.length, "NFT non trovato.");
+        NFT storage nft = nftDisponibili[_index];
+        require(msg.value >= nft.prezzo, "Importo insufficiente.");
+        address venditore = nft.proprietario;
+        nft.proprietario = msg.sender;
+        nft.prezzo = 0;
         payable(venditore).transfer(msg.value);
-}
+        emit NFTVenduto(msg.sender, venditore, msg.value);
+    }      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);
+}unction acquistaNFT(uint256 _ind      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);ex) external payable {
+        require(_index < nftDisponibili.length, "NFT non trovato.");
+        NFT storage nft = nftDisponibili[_index];
+        require(msg.value >= nft.prezzo, "Importo insufficiente.");
+        address venditore = nft.proprietario;
+        nft.proprietario = msg.sender;
+        nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);
+        emit NFTVenduto(msg.sender, venditore, msg.value);
+    }      nft.prezzo = 0;
+        payable(venditore).transfer(msg.value);
