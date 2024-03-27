@@ -2,16 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract NFTMarketplace {
-    address public owner;
-    string public nome;
-    string public simbolo;
-    uint256 public costoDiInserzione;
-
-    struct NFT {
-        address proprietario;
-        uint256 prezzo;
-        string metadataURI;
-    }
+    address public 
 
     NFT[] public nftDisponibili;
 
