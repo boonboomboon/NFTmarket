@@ -8,16 +8,7 @@ contract NFTMarketplace {
 
     mapping(address => NFT[]) public nftDiUnUtente;
 
-    event NFTInserito(address indexed proprietario, uint256 prezzo, string metadataURI);
-    event NFTVenduto(address indexed compratore, address indexed venditore, uint256 prezzo);
-
-    constructor(string memory _nome, string memory _simbolo, uint256 _costoDiInserzione) {
-        owner = msg.sender;
-        nome = _nome;
-        simbolo = _simbolo;
-        costoDiInserzione = _costoDiInserzione;
-    }
-
+    event NFTInserito(address indexed 
     function inserisciNFT(uint256 _prezzo, string memory _metadataURI) external {
         require(_prezzo >= costoDiInserzione, "Il prezzo di inserzione non è sufficiente.");
         nftDisponibili.push(NFT({
