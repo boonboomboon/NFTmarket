@@ -6,13 +6,7 @@ contract NFTMarketplace {
 
     NFT[] public nftDisponibili;
 
-    mapping(address => NFT[]) public nftDiUnUtente;
-
-    event NFTInserito(address indexed 
-    function acquistaNFT(uint256 _ind      nft.prezzo = 0;
-        payable(venditore).transfer(msg.value);ex) external payable {
-        require(_index < nftDisponibili.length, "NFT non trovato.");
-        NFT storage nft = nftDisponibili[_index];
+    mapping(address => NFT[]) pu
         require(msg.value >= nft.prezzo, "Importo insufficiente.");
         address venditore = nft.proprietario;
         nft.proprietario = msg.sender;
